@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8"/>
-<title>Spring boot de Hello world!</title>
+	<meta charset="UTF-8"/>
+	<title>top page</title>
+	<style>
+	h1 { fontsize:18pt; font-wight:bold; color:gray; }
+	body { font-size:13pt; color:gray; margin:5px 25px;}
+	</style>
 </head>
 <body>
-  <span th:text="${message}">Hello world</span>
+  <h1>A PROJECT ランキング</h1>
+  <p class="msg" th:text="${msg}"></p>
 </body>
 </html>
