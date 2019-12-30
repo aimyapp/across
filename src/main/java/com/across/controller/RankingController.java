@@ -1,8 +1,13 @@
 package com.across.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.across.service.RankingService;
+
+import lombok.val;
 
 /**
  *
@@ -15,10 +20,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class RankingController {
 
+	@Autowired
+	RankingService service;
+
 	@RequestMapping("/")
-	public String helloRanking(Model model) {
-	    model.addAttribute("msg", "Hello page");
-	    return "index";
+	public ModelAndView helloRanking(ModelAndView mav) {
+
+		mav.setViewName("index");
+		val datalist = service.findAll();
+		mav.addObject("datalist", datalist);
+		return mav;
 	}
 
 }
